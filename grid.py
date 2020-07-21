@@ -9,8 +9,9 @@ class Domain:
 
     
 class Grid:
-    def __init__(self, cells):
+    def __init__(self, cells, points):
         self.cells = cells
+        self.points = points
 
     @staticmethod
     def getCartesian(domainSize, numPointsPerDimension):
@@ -53,3 +54,4 @@ class Grid:
         nextGeneration = set(laterGenerationCell for cell in currentCells for laterGenerationCell in cell.successors if len(laterGenerationCell.predecessors) == 0)
         if len(nextGeneration) != 0:
             self.findNextGeneration(nextGeneration, generation+1)
+

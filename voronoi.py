@@ -10,7 +10,9 @@ def getVoronoiGrid(points, xRange, yRange):
     for region in regions:
         vertices = getVertices(voronoiGrid, region, xRange, yRange)
         cells.append(Cell(vertices))
-    grid = Grid(cells)
+    grid = Grid(cells, points)
+    for (i, cell) in enumerate(grid.cells):
+        cell.name = i
     for (i, region1) in enumerate(regions):
         for (j, region2) in enumerate(regions):
             if j <= i: 
